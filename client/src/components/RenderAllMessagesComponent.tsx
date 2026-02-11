@@ -1,0 +1,36 @@
+import type { Message } from "../types/types";
+
+const RenderAllMessagesComponent = ({
+  messages,
+  myUserId,
+}: {
+  messages: Message[];
+  myUserId: string | null;
+}) => {
+  if (!myUserId) return null;
+
+  return (
+    <div className="flex flex-col ">
+      <div className="flex-1 flex flex-col p-6 w-full overflow-y-auto gap-2">
+        {messages.length > 0 ? (
+          messages.map((message) => (
+            <div
+              key={message._id}
+              className={`p-2 rounded-xl w-fit shadow-md ${
+                myUserId === message.senderId
+                  ? "bg-white text-gray-900 rounded-bl-none"
+                  : "bg-emerald-500 text-white self-end rounded-br-none"
+              }`}
+            >
+              <p>{message.text}</p>
+            </div>
+          ))
+        ) : (
+          <p className="text-center mt-12 text-gray-700">No messages</p>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default RenderAllMessagesComponent;
