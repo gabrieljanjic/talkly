@@ -19,7 +19,7 @@ const allowedOrigins = [
 ];
 
 app.set("trust proxy", 1);
-app.use(cors({ allowedOrigins, credentials: true }));
+app.use(cors({ origin: allowedOrigins, credentials: true }));
 app.use(cookieParser());
 app.use(express.json());
 
@@ -30,7 +30,7 @@ mongoose
 
 const server = http.createServer(app);
 const io = new Server(server, {
-  cors: { allowedOrigins, credentials: true },
+  cors: { origin: allowedOrigins, credentials: true },
 });
 
 const onlineUsers = new Set();
