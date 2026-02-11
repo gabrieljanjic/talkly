@@ -43,7 +43,7 @@ const UserPage = () => {
   };
 
   return (
-    <section className="m-3">
+    <section className="m-3 flex gap-3 flex-col">
       {users.length > 0 ? (
         users.map((user: User) => {
           return (
