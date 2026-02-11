@@ -8,7 +8,7 @@ import { IoExitOutline } from "react-icons/io5";
 function App() {
   const { isAuthenticated } = useAuth();
   return (
-    <main className="w-full h-screen m-auto flex flex-col sm:flex-row overflow-hidden">
+    <main className="w-full h-dvh m-auto flex flex-col sm:flex-row overflow-hidden">
       <div className="shrink-0">
         <NavbarComponent />
       </div>
@@ -17,32 +17,7 @@ function App() {
           <Outlet />
         </div>
       ) : (
-        /*<>
-          <div className="w-full flex-1 overflow-y-auto">
-            <p className="text-6xl">test</p>
-            <p className="text-6xl">test</p>
-            <p className="text-6xl">test</p>
-            <p className="text-6xl">test</p>
-            <p className="text-6xl">test</p>
-            <p className="text-6xl">test</p>
-            <p className="text-6xl">test</p>
-            <p className="text-6xl">test</p>
-            <p className="text-6xl">test</p>
-            <p className="text-6xl">test</p>
-            <p className="text-6xl">test</p>
-            <p className="text-6xl">test</p>
-            <p className="text-6xl">test</p>
-            <p className="text-6xl">test</p>
-            <p className="text-6xl">test</p>
-            <p className="text-6xl">test</p>
-            <p className="text-6xl">test</p>
-            <p className="text-6xl">test</p>
-          </div>
-          <div className="w-full shrink-0">
-            <p className="text-6xl">test2</p>
-          </div>
-        </>*/
-        <section className="w-full flex flex-col items-center justify-center bg-linear-to-br from-neutral-50 to-gray-100">
+        <section className="w-full flex flex-col items-center h-full justify-center bg-linear-to-br from-neutral-50 to-gray-100">
           <div className="max-w-md text-center px-6">
             <h2 className="text-2xl font-bold text-gray-800 mb-4">
               Welcome to Talkly

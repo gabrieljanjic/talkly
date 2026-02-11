@@ -23,7 +23,7 @@ exports.createUser = async (req, res) => {
         message: "Password must be at least 8 characters long",
       });
     }
-    if (username.length > 20 || firstName > 20 || lastName > 20) {
+    if (username.length > 20 || firstName.length > 20 || lastName.length > 20) {
       return res.status(400).json({
         status: "error",
         message: "All fields must be less than 20 characters long",
