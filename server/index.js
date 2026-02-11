@@ -13,8 +13,13 @@ require("dotenv").config();
 
 const app = express();
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://talkly-bay.vercel.app",
+];
+
 app.set("trust proxy", 1);
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+app.use(cors({ allowedOrigins, credentials: true }));
 app.use(cookieParser());
 app.use(express.json());
 
@@ -25,7 +30,7 @@ mongoose
 
 const server = http.createServer(app);
 const io = new Server(server, {
-  cors: { origin: "http://localhost:5173", credentials: true },
+  cors: { allowedOrigins, credentials: true },
 });
 
 const onlineUsers = new Set();
