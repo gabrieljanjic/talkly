@@ -12,11 +12,11 @@ A modern, real-time chat application built with React, Node.js, and Socket.IO, f
 
 > **Quick Test Account:** If you don’t want to create your own account, you can log in directly using:
 >
-> - **Username:** `filip.demo`
-> - **Password:** `Filipdemo1-`
-
 > - **Username:** `nikola.demo`
 > - **Password:** `Nikolademo1-`
+
+> - **Username:** `filip.demo`
+> - **Password:** `Filipdemo1-`
 
 ### 🔐 Authentication & Security
 
