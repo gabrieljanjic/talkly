@@ -18,8 +18,8 @@ const RenderAllMessagesComponent = ({
               key={message._id}
               className={`p-2 rounded-xl w-fit shadow-md ${
                 myUserId === message.senderId
-                  ? "bg-white text-gray-900 rounded-bl-none"
-                  : "bg-emerald-500 text-white self-end rounded-br-none"
+                  ? "bg-emerald-500 text-white self-end rounded-br-none"
+                  : "bg-white text-gray-900rounded-bl-none"
               }`}
             >
               <p>{message.text}</p>

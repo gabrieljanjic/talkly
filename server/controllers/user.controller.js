@@ -16,6 +16,19 @@ exports.createUser = async (req, res) => {
         message: "All fields are required",
       });
     }
+
+    if (password.length < 8 || password.length > 20) {
+      return res.status(400).json({
+        status: "error",
+        message: "Password must be at least 8 characters long",
+      });
+    }
+    if (username.length > 20 || firstName > 20 || lastName > 20) {
+      return res.status(400).json({
+        status: "error",
+        message: "All fields must be less than 20 characters long",
+      });
+    }
     const existingUser = await User.findOne({ username });
     if (existingUser) {
       return res.status(400).json({
