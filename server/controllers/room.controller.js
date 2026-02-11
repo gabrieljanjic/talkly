@@ -31,11 +31,13 @@ exports.getUserRooms = async (req, res) => {
     const myUserId = req.user.id;
     const rooms = await Room.find({ participants: myUserId })
       .select("_id lastMessage participants createdAt")
+      .sort({ lastMessage: -1 })
       .populate({
         path: "participants",
         select: "username firstName lastName",
         match: { _id: { $ne: myUserId } },
       });
+
     res.status(200).json({ status: "success", data: rooms });
   } catch (err) {
     res.status(500).json({ status: "error", message: "Internal server error" });

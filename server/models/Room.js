@@ -9,6 +9,7 @@ const roomSchema = new mongoose.Schema({
     },
   ],
   lastMessage: { type: String, default: "" },
+  lastMessageAt: { type: Date, default: Date.now },
   createdAt: { type: Date, default: Date.now },
 });
 

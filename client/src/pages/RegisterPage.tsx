@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import axios, { AxiosError } from "axios";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 
 const RegisterComponent = () => {
@@ -96,6 +96,12 @@ const RegisterComponent = () => {
           >
             {loading ? "Loading..." : "SIGN UP"}
           </button>
+          <div className="flex gap-1 items-center justify-center">
+            <p className="text-gray-700">Already have an account?</p>
+            <Link to="/login" className="text-blue-500">
+              Log in
+            </Link>
+          </div>
         </form>
       </div>
     </section>

@@ -24,21 +24,24 @@ const UserChatBioComponent = ({
     return null;
   }
   return (
-    <div className="flex gap-4 p-2 bg-white border border-transparent border-b-gray-300">
-      <img src={placeholderImage} className="w-12 h-12 rounded-full" />
+    <div className="flex items-center gap-4 p-2 bg-white border border-transparent border-b-gray-300">
+      <img
+        src={placeholderImage}
+        className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-gray-300"
+      />
       <div>
-        <p className="text-gray-900">
+        <p className="text-gray-900 text-sm sm:text-base">
           {chatPartner.firstName} {chatPartner.lastName}
         </p>
         {isOnline ? (
           <div className="flex gap-1 items-center">
             <p className="w-2 h-2 rounded-full bg-emerald-500"></p>
-            <p className="text-sm text-gray-800">Online</p>
+            <p className="text-xs sm:text-sm text-gray-800">Online</p>
           </div>
         ) : (
           <div className="flex gap-1 items-center">
             <p className="w-2 h-2 rounded-full bg-gray-500"></p>
-            <p className="text-sm text-gray-800">
+            <p className="text-xs sm:text-sm text-gray-800">
               {handleTimeAgo(chatPartner?.lastOnline)}
             </p>
           </div>

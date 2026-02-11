@@ -14,7 +14,7 @@ exports.createMessage = async (req, res) => {
 
     await Room.findOneAndUpdate(
       { _id: roomId },
-      { $set: { lastMessage: message } },
+      { $set: { lastMessage: message, lastMessageAt: new Date() } },
       { new: true },
     );
     res.status(200).json({ status: "success", message: newMessage });

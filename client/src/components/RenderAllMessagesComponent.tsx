@@ -11,18 +11,18 @@ const RenderAllMessagesComponent = ({
 
   return (
     <div className="flex flex-col ">
-      <div className="flex-1 flex flex-col p-6 w-full overflow-y-auto gap-2">
+      <div className="flex-1 flex flex-col px-6 py-2 w-full overflow-y-auto gap-2">
         {messages.length > 0 ? (
           messages.map((message) => (
             <div
               key={message._id}
-              className={`p-2 rounded-xl w-fit shadow-md ${
+              className={`py-1 px-2 sm:py-2 rounded-xl w-fit max-w-3/4 shadow-md ${
                 myUserId === message.senderId
                   ? "bg-emerald-500 text-white self-end rounded-br-none"
-                  : "bg-white text-gray-900rounded-bl-none"
+                  : "bg-white text-gray-900 rounded-bl-none"
               }`}
             >
-              <p>{message.text}</p>
+              <p className="text-sm sm:text-base">{message.text}</p>
             </div>
           ))
         ) : (

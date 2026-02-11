@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import ChatComponent from "../components/ChatComponent";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { toast } from "react-toastify";
 import axios, { AxiosError } from "axios";
 import { useAuth } from "../contexts/AuthContext";
@@ -15,6 +15,13 @@ const ExactChatPage = () => {
   const [chatPartner, setChatPartner] = useState<ChatPartner | null>(null);
   const { roomId } = useParams();
   const { userId } = useAuth();
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollTop = messagesEndRef.current.scrollHeight;
+    }
+  }, [messages]);
 
   useEffect(() => {
     const getMessagesByRoomId = async () => {
@@ -64,11 +71,11 @@ const ExactChatPage = () => {
   }
 
   return (
-    <section className="flex flex-col h-screen bg-neutral-200 w-full">
+    <section className="flex flex-col h-full bg-neutral-200 w-full">
       <div className="shrink-0">
         <UserChatBioComponent chatPartner={chatPartner} />
       </div>
-      <div className="flex-1 overflow-y-auto">
+      <div className="flex-1 overflow-y-auto" ref={messagesEndRef}>
         <RenderAllMessagesComponent messages={messages} myUserId={userId} />
       </div>
       <div className="shrink-0">

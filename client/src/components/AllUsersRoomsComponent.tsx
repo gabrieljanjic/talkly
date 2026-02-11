@@ -29,26 +29,31 @@ const AllUsersRoomsComponent = () => {
     getAllUserRooms();
   }, []);
   return (
-    <section className="bg-neutral-200 h-screen p-4">
-      <h4 className="text-gray-700  text-2xl font-semibold mb-3">Chats</h4>
+    <section className="bg-white h-screen p-4">
+      <h4 className="text-gray-700  text-2xl font-semibold mb-1 sm:mb-3">
+        Chats
+      </h4>
       <SearchUserComponent />
       {rooms.length > 0 ? (
         rooms.map((room: Room) => {
           return (
             <Link to={`/chat/${room._id}`} key={room._id}>
               <div
-                className={`flex gap-4 p-2 bg-gray-50 border border-gray-300 rounded mt-3 ${room._id === roomId && "bg-neutral-300"}`}
+                className={`flex gap-4 p-2 bg-gray-50 border border-neutral-200 rounded mt-3 
+                ${room._id === roomId ? "bg-neutral-200" : ""}`}
               >
                 <img
                   src={placeholderImage}
-                  className="w-12 h-12 rounded-full"
+                  className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-gray-300"
                 />
-                <div>
-                  <p className="text-gray-900">
+                <div className="flex-1 min-w-0">
+                  <p className="text-gray-900 text-sm md:font-base">
                     {room.participants[0].firstName}{" "}
                     {room.participants[0].lastName}
                   </p>
-                  <p className="text-gray-700 text-sm">{room.lastMessage}</p>
+                  <p className="text-gray-700 text-xs md:text-sm truncate">
+                    {room.lastMessage}
+                  </p>
                 </div>
               </div>
             </Link>

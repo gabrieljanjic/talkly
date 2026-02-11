@@ -68,7 +68,7 @@ const ChatComponent = ({ socket }: ChatComponentProps) => {
   }, []);
 
   return (
-    <div className="mt-3 p-3 flex items-center gap-2 border border-transparent border-t-gray-200 ">
+    <div className="mt-3 p-3 flex items-center gap-2 border border-transparent border-t-gray-300">
       <input
         type="text"
         value={message}

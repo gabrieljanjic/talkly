@@ -9,7 +9,7 @@ import { VscAccount } from "react-icons/vsc";
 import { toast } from "react-toastify";
 
 const NavbarComponent = () => {
-  const { username, refreshAuth, isAuthenticated, setIsAuthenticated } =
+  const { firstName, refreshAuth, isAuthenticated, setIsAuthenticated } =
     useAuth();
   const handleSignOut = async () => {
     try {
@@ -33,8 +33,8 @@ const NavbarComponent = () => {
   }
 
   return (
-    <nav className="bg-emerald-500 p-2 flex h-screen justify-between items-center">
-      <div className="flex flex-col items-center gap-5">
+    <nav className="bg-emerald-500 p-3 flex h-12 sm:h-screen justify-between items-center">
+      <div className="flex flex-row justify-center w-full sm:w-fit sm:flex-col items-center gap-5">
         <Link to="/">
           <button className="bg-white py-1 px-2 rounded cursor-pointer text-gray-800">
             <FiMessageSquare className="text-lg" />
@@ -44,7 +44,7 @@ const NavbarComponent = () => {
           <>
             <Link to="/login">
               <button className="bg-white py-1 px-2 rounded cursor-pointer text-gray-800">
-                <div className="flex flex-col items-center">
+                <div className="flex flex-row gap-2 sm:gap-0 sm:flex-col items-center">
                   <IoExitOutline className="text-lg" />
                   <p>Login</p>{" "}
                 </div>
@@ -52,7 +52,7 @@ const NavbarComponent = () => {
             </Link>
             <Link to="/register">
               <button className="bg-white py-1 px-2 rounded cursor-pointer text-gray-800">
-                <div className="flex flex-col items-center">
+                <div className="flex flex-row gap-2 sm:gap-0 sm:flex-col items-center">
                   <VscAccount className="text-lg" />
                   <p>Register</p>
                 </div>
@@ -61,9 +61,9 @@ const NavbarComponent = () => {
           </>
         ) : (
           <>
-            <div className="flex flex-col items-center">
+            <div className="flex flex-row gap-2 sm:gap-0 sm:flex-col items-center">
               <img src={placeholderImage} className="w-8 h-8 rounded-full" />
-              <p className="text-white">{username}</p>
+              <p className="text-white">{firstName}</p>
             </div>
             <button
               className="bg-white py-1 px-2 rounded cursor-pointer text-gray-800"

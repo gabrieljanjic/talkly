@@ -54,17 +54,19 @@ const UserPage = () => {
               <div className="flex items-center gap-4">
                 <img
                   src={placeholderImage}
-                  className="w-16 h-16 rounded-full"
+                  className="w-10 h-10 md:w-14 md:h-14 rounded-full border border-gray-300"
                 />
                 <div>
-                  <p className="text-gray-900">
+                  <p className="text-gray-900 text-sm sm:text-base">
                     {user.firstName} {user.lastName}
                   </p>
-                  <p className="text-gray-700">@{user.username}</p>
+                  <p className="text-gray-700 text-xs sm:text-sm">
+                    @{user.username}
+                  </p>
                 </div>
               </div>
               <button
-                className="px-2 py-1 bg-emerald-500 text-white flex gap-1 items-center rounded cursor-pointer"
+                className="px-2 py-1 bg-emerald-500 text-white flex gap-1 items-center rounded cursor-pointer text-sm"
                 onClick={() => {
                   handleOpeningRoom(user._id.toString());
                 }}
