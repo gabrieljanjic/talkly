@@ -7,6 +7,7 @@ import { IoExitOutline } from "react-icons/io5";
 
 function App() {
   const { isAuthenticated } = useAuth();
+
   return (
     <main className="w-full h-dvh m-auto flex flex-col sm:flex-row overflow-hidden">
       <div className="shrink-0">

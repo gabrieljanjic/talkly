@@ -16,7 +16,7 @@ const RenderAllMessagesComponent = ({
           messages.map((message) => (
             <div
               key={message._id}
-              className={`py-1 px-2 sm:py-2 rounded-xl w-fit max-w-3/4 shadow-md ${
+              className={`py-1 px-2 sm:py-2 rounded-lg sm:rounded-xl w-fit max-w-3/4 shadow-md ${
                 myUserId === message.senderId
                   ? "bg-emerald-500 text-white self-end rounded-br-none"
                   : "bg-white text-gray-900 rounded-bl-none"
