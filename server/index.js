@@ -25,7 +25,6 @@ app.use(express.json());
 
 mongoose
   .connect(process.env.DATABASE)
-  .then(() => console.log("Connected to database"))
   .catch((err) => console.error("Database error:", err));
 
 const server = http.createServer(app);
