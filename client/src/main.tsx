@@ -1,7 +1,6 @@
 import { StrictMode, useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
 
 import App from "./App.tsx";
 import RegisterPage from "./pages/RegisterPage.tsx";
@@ -14,6 +13,7 @@ import ExactChatPage from "./pages/ExactChatPage.tsx";
 import { AuthProvider } from "./contexts/AuthContext.tsx";
 import ChatLayout from "./pages/ChatLayout.tsx";
 import { SocketProvider } from "./contexts/SocketContext.tsx";
+import { Toaster } from "react-hot-toast";
 
 function ServerLoader() {
   return (
@@ -72,7 +72,7 @@ function AppWrapper() {
     <AuthProvider>
       <SocketProvider>
         <RouterProvider router={router} />
-        <ToastContainer position="top-right" autoClose={3000} />
+        <Toaster />
       </SocketProvider>
     </AuthProvider>
   );

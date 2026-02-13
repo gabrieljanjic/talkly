@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import ChatComponent from "../components/ChatComponent";
 import { useEffect, useRef, useState } from "react";
-import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
 import axios, { AxiosError } from "axios";
 import { useAuth } from "../contexts/AuthContext";
 import RenderAllMessagesComponent from "../components/RenderAllMessagesComponent";

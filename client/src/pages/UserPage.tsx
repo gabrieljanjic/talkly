@@ -3,7 +3,7 @@ import axios, { AxiosError } from "axios";
 import { useEffect, useState } from "react";
 import placeholderImage from "../images/portrait_placeholder-1x1.png";
 import { TiMessages } from "react-icons/ti";
-import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
 import type { User } from "../types/types";
 
 const UserPage = () => {

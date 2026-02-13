@@ -6,7 +6,7 @@ import placeholderImage from "../images/portrait_placeholder-1x1.png";
 import { IoExitOutline } from "react-icons/io5";
 import { FiMessageSquare } from "react-icons/fi";
 import { VscAccount } from "react-icons/vsc";
-import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
 
 const NavbarComponent = () => {
   const { firstName, refreshAuth, isAuthenticated, setIsAuthenticated } =

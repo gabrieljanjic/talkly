@@ -1,7 +1,7 @@
 import axios, { AxiosError } from "axios";
 import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
-import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
 import { Socket } from "socket.io-client";
 import { useAuth } from "../contexts/AuthContext";
 import { BsEmojiGrin, BsSend } from "react-icons/bs";

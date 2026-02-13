@@ -1,6 +1,6 @@
 import axios, { AxiosError } from "axios";
 import { useEffect } from "react";
-import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
 import placeholderImage from "../images/portrait_placeholder-1x1.png";
 import { Link, useParams } from "react-router-dom";
 import SearchUserComponent from "./SearchUserComponent";

@@ -1,7 +1,6 @@
 import { useState } from "react";
-
-import axios, { AxiosError } from "axios";
-import { toast } from "react-toastify";
+import axios from "axios";
+import { toast } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 
@@ -9,43 +8,34 @@ const LoginComponent = () => {
   const { setIsAuthenticated, refreshAuth } = useAuth();
   const navigate = useNavigate();
 
-  const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
-
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = async () => {
     if (!username || !password) return toast.error("All fields are required");
-    try {
-      setLoading(true);
 
-      const res = await axios.post(
+    await toast.promise(
+      axios.post(
         `${import.meta.env.VITE_API_URL}/login-user`,
-        {
-          username,
-          password,
+        { username, password },
+        { withCredentials: true },
+      ),
+      {
+        loading: "Logging in...",
+        success: (res) => {
+          if (res.data.status === "success") {
+            setIsAuthenticated(true);
+            refreshAuth();
+            setUsername("");
+            setPassword("");
+            navigate("/");
+            return res.data.message;
+          }
+          return "Unknown response";
         },
-        {
-          withCredentials: true,
-        },
-      );
-      if (res.data.status === "success") {
-        toast.success(res.data.message);
-        setIsAuthenticated(true);
-        await refreshAuth();
-        setUsername("");
-        setPassword("");
-        navigate("/");
-      }
-      setUsername("");
-      setPassword("");
-    } catch (err) {
-      const error = err as AxiosError<{ message: string }>;
-      setError(error.response?.data.message || "Something wrong");
-    } finally {
-      setLoading(false);
-    }
+        error: (err) => err.response?.data.message || "Login failed",
+      },
+    );
   };
 
   return (
@@ -75,13 +65,11 @@ const LoginComponent = () => {
             onChange={(e) => setPassword(e.target.value)}
             className="border border-gray-300 rounded-md p-2 md:p-3 focus:outline-none focus:ring-1 focus:ring-emerald-500"
           />
-          {error && <p className="text-red-500 text-sm">{error}</p>}
           <button
             type="submit"
-            disabled={loading}
-            className="bg-emerald-600 text-white p-2 md:p-3 rounded-md hover:bg-emerald-700 transition disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+            className="bg-emerald-600 text-white p-2 md:p-3 rounded-md hover:bg-emerald-700 transition cursor-pointer"
           >
-            {loading ? "Loading..." : "LOG IN"}
+            LOG IN
           </button>
           <div className="flex gap-1 items-center justify-center">
             <p className="text-gray-700">Don't have an account?</p>
