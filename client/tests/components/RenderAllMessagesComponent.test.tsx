@@ -14,7 +14,9 @@ describe("RenderAllMessagesComponent", () => {
   });
 
   afterAll(() => {
-    db.message.deleteMany({ where: { _id: { equals: messages._id } } });
+    db.message.deleteMany({
+      where: { _id: { in: messages.map((m) => m._id) } },
+    });
   });
 
   it("should show all messages", () => {
