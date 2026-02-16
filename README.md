@@ -47,6 +47,36 @@ A modern, real-time chat application built with React, Node.js, and Socket.IO, f
 
 ---
 
+### 🧪 Testing
+
+- Unit & Integration Tests built with Vitest and React Testing Library
+- Component & Hook Coverage including messaging, and UI logic
+- Mocked APIs using MSW and @mswjs/data
+- Realistic Test Data generated with Faker
+- Test Coverage: ~89%, with minor gaps limited to edge cases and third-party integrations
+
+## Install testing dependencies:
+
+```bash
+
+npm i -D vitest
+npm i -D @testing-library/react@latest
+npm i -D @testing-library/jest-dom
+npm i -D jsdom@24.0.0
+npm i -D @testing-library/user-event
+npm i -D msw
+npm i -D @mswjs/data@0.16.1
+npm i -D @faker-js/faker
+npm i -D @vitest/coverage-v8
+```
+
+## Run tests:
+
+```bash
+npm run test
+npm run test:coverage
+```
+
 ## 🛠️ Tech Stack
 
 ### Frontend

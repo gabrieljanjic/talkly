@@ -61,6 +61,7 @@ const RegisterComponent = () => {
         >
           <input
             type="text"
+            autoFocus
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
             placeholder="First name"

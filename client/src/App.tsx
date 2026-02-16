@@ -36,6 +36,7 @@ function App() {
             <Link
               className="text-blue-400 hover:text-blue-500 hover:underline flex gap-2 items-center justify-center"
               to="/login"
+              data-testid="page-login-link"
             >
               Login
               <p>

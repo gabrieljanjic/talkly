@@ -1,5 +1,5 @@
 import axios, { AxiosError } from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import placeholderImage from "../images/portrait_placeholder-1x1.png";
 import { Link, useParams } from "react-router-dom";
@@ -7,11 +7,14 @@ import SearchUserComponent from "./SearchUserComponent";
 import { FaArrowUp } from "react-icons/fa";
 import { useAuth } from "../contexts/AuthContext";
 import type { Room } from "../types/types";
+import Loading from "./Loading";
 
 const AllUsersRoomsComponent = () => {
   const { rooms, setRooms } = useAuth();
   const { roomId } = useParams();
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
+    setLoading(true);
     const getAllUserRooms = async () => {
       try {
         const res = await axios.get(
@@ -24,13 +27,23 @@ const AllUsersRoomsComponent = () => {
       } catch (err) {
         const error = err as AxiosError<{ message: string }>;
         toast.error(error.response?.data?.message || "Something went wrong");
+      } finally {
+        setLoading(false);
       }
     };
     getAllUserRooms();
   }, []);
+
+  if (loading) {
+    return <Loading />;
+  }
+
   return (
     <section className="bg-white h-screen p-4">
-      <h4 className="text-gray-700  text-2xl font-semibold mb-1 sm:mb-3">
+      <h4
+        className="text-gray-700  text-2xl font-semibold mb-1 sm:mb-3"
+        role="h4"
+      >
         Chats
       </h4>
       <SearchUserComponent />
@@ -40,7 +53,7 @@ const AllUsersRoomsComponent = () => {
             <Link to={`/chat/${room._id}`} key={room._id}>
               <div
                 className={`flex gap-4 p-2 bg-gray-50 border border-neutral-200 rounded mt-3 
-                ${room._id === roomId ? "bg-neutral-200" : ""}`}
+                ${room._id === roomId && "bg-neutral-200"}`}
               >
                 <img
                   src={placeholderImage}

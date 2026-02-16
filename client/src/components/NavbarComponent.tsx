@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useAuth } from "../contexts/AuthContext";
-import Loading from "../components/Loading";
 import { Link } from "react-router-dom";
 import placeholderImage from "../images/portrait_placeholder-1x1.png";
 import { IoExitOutline } from "react-icons/io5";
@@ -23,14 +22,11 @@ const NavbarComponent = () => {
       } else {
         setIsAuthenticated(true);
       }
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       setIsAuthenticated(true);
     }
   };
-
-  if (isAuthenticated === null) {
-    return <Loading />;
-  }
 
   return (
     <nav className="bg-emerald-500 p-3 flex h-12 sm:h-screen justify-between items-center">
@@ -69,7 +65,10 @@ const NavbarComponent = () => {
               className="bg-white py-1 px-2 rounded cursor-pointer text-gray-800"
               onClick={() => handleSignOut()}
             >
-              <IoExitOutline className="text-lg" />
+              <div className="flex flex-row gap-2 sm:gap-0 sm:flex-col items-center">
+                <IoExitOutline className="text-lg" />
+                <p>Sign out</p>
+              </div>
             </button>
           </>
         )}

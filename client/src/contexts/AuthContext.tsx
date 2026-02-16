@@ -6,22 +6,7 @@ import {
   type ReactNode,
 } from "react";
 import axios from "axios";
-import type { User, Room } from "../types/types";
-
-type AuthContextType = {
-  isAuthenticated: boolean;
-  setIsAuthenticated: React.Dispatch<React.SetStateAction<boolean>>;
-  user: User | null;
-  loading: boolean;
-  userId: string | null;
-  username: string | null;
-  firstName: string | null;
-  lastName: string | null;
-  refreshAuth: () => Promise<void>;
-  rooms: Room[];
-  setRooms: React.Dispatch<React.SetStateAction<Room[]>>;
-  updateLastMessage: (roomId: string, message: string) => void;
-};
+import type { User, Room, AuthContextType } from "../types/types";
 
 const AuthContext = createContext<AuthContextType | null>(null);
 

@@ -37,7 +37,7 @@ exports.getUserRooms = async (req, res) => {
         select: "username firstName lastName",
         match: { _id: { $ne: myUserId } },
       });
-
+    console.log(rooms[0].participants);
     res.status(200).json({ status: "success", data: rooms });
   } catch (err) {
     res.status(500).json({ status: "error", message: "Internal server error" });

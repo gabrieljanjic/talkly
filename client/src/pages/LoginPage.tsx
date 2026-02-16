@@ -55,6 +55,7 @@ const LoginComponent = () => {
         >
           <input
             type="text"
+            autoFocus
             onChange={(e) => setUsername(e.target.value)}
             placeholder="Username"
             className="border border-gray-300 rounded-md p-2 md:p-3 focus:outline-none focus:ring-1 focus:ring-emerald-500"
