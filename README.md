@@ -73,15 +73,15 @@ npm i -D @vitest/coverage-v8
 ## Run tests:
 
 ```bash
-npm run test
-npm run test:coverage
+npm run test or npm run test:ui
+npm run coverage
 ```
 
 ## 🛠️ Tech Stack
 
 ### Frontend
 
-- **React 18.x** - UI library
+- **React 19** - UI library
 - **TypeScript** - type safety
 - **TailwindCSS** - styling
 - **Socket.IO Client** - real-time communication
