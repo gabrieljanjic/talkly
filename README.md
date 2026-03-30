@@ -4,6 +4,14 @@ A modern, real-time chat application built with React, Node.js, and Socket.IO, f
 
 ---
 
+## 📱 Screenshots
+
+![Home](/client/src/images/home.PNG)
+![Login](/client/src/images/login.PNG)
+![Chat](/client/src/images/real-chat.PNG)
+
+---
+
 ## Live Demo
 
 🔗 [Talkly Live](https://talkly-bay.vercel.app/)
